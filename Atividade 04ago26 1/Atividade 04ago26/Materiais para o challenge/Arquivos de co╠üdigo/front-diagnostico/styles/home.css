@@ -1,0 +1,42 @@
+.user_role_container {
+  width: 30%;
+  min-width: 500px;
+  min-height: 300px;
+  background-color: rgb(255, 255, 255);
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  gap: 50px;
+  border-radius: 15px;
+}
+
+.user_role_container h1 {
+  text-align: center;
+}
+
+.user_role_container p {
+  font-size: 1.3rem;
+}
+
+.user_role_container button {
+  min-width: 150px;
+  min-height: 60px;
+  background-color: rgb(130, 255, 130);
+  font-weight: 700;
+  margin-top: 30px;
+  font-size: 1.3rem;
+  border-radius: 10px;
+}
+
+.user_role_container button:hover {
+  background-color: rgb(105, 204, 105);
+  cursor: pointer;
+}

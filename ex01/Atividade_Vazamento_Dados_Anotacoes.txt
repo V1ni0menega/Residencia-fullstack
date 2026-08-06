@@ -1,0 +1,147 @@
+ATIVIDADE: VAZAMENTO DE DADOS - ROCKET CATS CO.
+Anotações da mentoria (Residência Fullstack)
+==================================================
+
+CONTEXTO
+--------
+Dossiê "Rocket Cats Co." (fevereiro/2026) traz uma tabela de colaboradores
+ADMIN e USER (nome, contato, missão atual, última atualização) e 4 prints
+de páginas de phishing imitando o site oficial (RocketCatz.co).
+
+Regras de negócio:
+1. Marcações só entre 08h00 e 18h00 (horário de Brasília).
+2. Atualizações devem ser registradas até o último dia de cada mês.
+3. Contato deve seguir o padrão nome@gmail.com (e-mail profissional).
+4. Acesso a informações sensíveis é exclusivo de colaboradores ADMIN.
+
+TAREFA 1 - Transferir para tabela organizada
+---------------------------------------------
+Status: praticamente completa.
+- Dados de ADMIN e USER transcritos corretamente, mesma ordem do dossiê.
+- Ponto de atenção: a página "Páginas suspeitas" (4 prints de phishing) do
+  dossiê não entrou na tabela. Vale registrar ao menos os domínios falsos
+  (rocktz.space, rocket4tz.space, gatoestelar.space, rocketcatsz.co) como
+  parte da investigação.
+
+TAREFA 2 - Encontrar erros/inconsistências e corrigir
+-------------------------------------------------------
+Status: concluída após 3 rodadas de ajuste.
+
+Erros identificados e corrigidos ao longo do processo:
+- Astr0@gmail.com (Astro/ADMIN) -> e-mail alterado (0 no lugar de "o") - RED
+- Contato em branco (Cosmo/ADMIN) - RED
+- nebul4@gmail.com (nebuloso/ADMIN) -> "o" trocado por "4" - RED
+- orion@gmail.com (Orion/ADMIN) -> conforme - GREEN
+- Missão em branco (nebuloso/ADMIN) - RED
+- 02/01/2025 16:00 (Cosmo/ADMIN) -> dado com mais de 1 ano parado, viola
+  atualização mensal - RED (corrigido de verde para vermelho)
+- 03/01/2026 3:00 (nebuloso/ADMIN) -> fora do horário 08h-18h - RED
+- 02/21/2026 22:30 (Orion/ADMIN) -> fora do horário - RED
+- nebul4@gmail.com (Nebuloso/USER) -> mesmo e-mail alterado do admin
+  "nebuloso" - RED (havia erro de digitação "ebul4", corrigido)
+- 555199123-4567 (Pulsar/USER) -> telefone no lugar de e-mail - RED
+  (estava sem marcação, corrigido)
+- vega01@gmail.com.br (Vega/USER) -> domínio errado (.com.br) - RED
+- Comet@gmail (Cometa/USER) -> domínio incompleto, falta ".com" - RED
+  (estava marcado verde por engano, corrigido)
+- ecplips3@gmail.com (Eclipse/USER) -> nome transposto + dígito - RED
+- 02/10/2026 20:00 (Nebuloso/USER) -> fora do horário - RED
+- Data em branco, 18:00 (Cometa/USER) -> dado incompleto - RED
+
+Contagem final: 8 em conformidade / 15-16 inconsistências (23 células
+avaliadas no total).
+
+ACHADO IMPORTANTE (para a Tarefa 3):
+"nebuloso" (conta ADMIN) e "Nebuloso" (conta USER) compartilham o MESMO
+e-mail de contato (nebul4@gmail.com). Isso sugere ou a mesma pessoa com
+duas contas (uma indevida, já que USER não deveria ter acesso sensível -
+regra 4), ou uma conta clonada/comprometida.
+
+TAREFA 3 - Consolidação com insights (EM ANDAMENTO)
+------------------------------------------------------
+Como abordar:
+
+Passo 1 - Agrupar inconsistências por regra violada (não por pessoa):
+  - Regra 1 (horário): nebuloso, Orion, Nebuloso(user)
+  - Regra 2 (atualização em dia): Cosmo, Cometa
+  - Regra 3 (padrão de e-mail): Astro, nebuloso, Cometa, Pulsar, Vega, Eclipse
+  - Regra 4 (acesso indevido): conta duplicada nebuloso(ADMIN)/Nebuloso(USER)
+  Isso já vira um gráfico de barras (eixo X = regra, eixo Y = qtde de violações).
+
+Passo 2 - Texto curto conectando os achados à narrativa do dossiê:
+  Os e-mails alterados (Astr0, nebul4, ecplips3 - trocas de letra por número
+  ou transposição) seguem o mesmo padrão dos domínios de phishing quase
+  idênticos ao site oficial (RocketCatz.co vs rocktz.space, rocket4tz.space
+  etc). Hipótese sustentada pelos dados: colaboradores caíram em phishing,
+  tiveram credenciais comprometidas, o que explica tanto os e-mails
+  corrompidos quanto a conta duplicada nebuloso/Nebuloso com privilégios
+  diferentes.
+
+Passo 3 - Organizar em um bloco final (aba nova ou seção da planilha):
+  3-5 frases com esse raciocínio + gráfico de barras por regra violada.
+
+PRÓXIMO PASSO
+-------------
+Escrever o texto de consolidação e montar o gráfico (pode ser feito na
+própria planilha - aba nova com resumo + gráfico de barras do Excel/Sheets).
+
+==================================================
+VERSÃO EM SQL (POSTGRES) - TIPOS DE DADOS SUGERIDOS
+==================================================
+
+Tabela de usuários, separada por colunas. Sugestão de tipos pro Postgres:
+
+- id                  -> SERIAL PRIMARY KEY
+    Nomes de gato não são bons identificadores únicos. Sem PK e sem
+    constraint de unicidade, nada impede duas contas colidirem (é
+    exatamente o problema nebuloso/Nebuloso encontrado na Tarefa 2).
+
+- nome                -> VARCHAR(255)
+
+- contato             -> VARCHAR(255)
+    Evitar TEXT sem necessidade; o padrão de dado é fixo (e-mail).
+
+- tipo_permissao      -> NÃO usar VARCHAR livre.
+    Opção 1: VARCHAR(10) + CHECK (tipo_permissao IN ('ADMIN','USER'))
+    Opção 2: CREATE TYPE tipo_permissao AS ENUM ('ADMIN','USER');
+    Isso evita inconsistência de digitação ("Admin", "admin ", etc.).
+
+- missao_atual        -> VARCHAR(100), permitindo NULL
+    (já existem registros sem missão no dossiê)
+
+- ultima_atualizacao  -> TIMESTAMP (ou TIMESTAMPTZ p/ guardar fuso BRT)
+    NUNCA VARCHAR. Guardar como texto foi o motivo de precisar caçar
+    inconsistência manualmente na planilha - com TIMESTAMP o banco já
+    rejeita formato inválido direto na inserção.
+
+Enviar o CREATE TABLE aqui depois de escrito, para revisão.
+
+==================================================
+GUIA - INSTALAR/CONFIGURAR POSTGRESQL NO PC DA OUTRA RESIDÊNCIA
+==================================================
+Cenário: Windows, só tem o instalador .exe do Postgres disponível,
+e o SQL Server já está instalado/funcionando na máquina.
+
+1. Rodar o instalador .exe. Ele já traz junto: PostgreSQL Server,
+   pgAdmin 4, Stack Builder e as ferramentas de linha de comando.
+2. Durante a instalação, ele pede uma senha para o superusuário
+   "postgres" - anotar essa senha, é a mais importante.
+3. Porta padrão: 5432. Pode deixar como está - o SQL Server normalmente
+   usa 1433, então não há conflito, os dois convivem na mesma máquina.
+4. Locale: pode deixar o padrão do sistema.
+5. Ao terminar, abrir o pgAdmin 4 (interface gráfica, parecida com o
+   SSMS do SQL Server) e conectar no servidor local com a senha do
+   passo 2.
+6. Para usar o "psql" pelo terminal, adicionar a pasta bin do Postgres
+   ao PATH do Windows (geralmente:
+   C:\Program Files\PostgreSQL\<versão>\bin ).
+   Sem isso, o comando "psql" não é reconhecido fora do pgAdmin.
+7. Testar com: psql -U postgres -h localhost
+   (ou direto pelo Query Tool do pgAdmin).
+
+==================================================
+PENDENTE
+==================================================
+- Perguntar/confirmar na documentação oficial se o histórico de chat
+  do Cowork sincroniza entre dispositivos (usuário perguntou por que
+  a conversa não apareceu em outro computador).
