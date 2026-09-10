@@ -1,0 +1,21 @@
+-- 3. DQL — DATA QUERY LANGUAGE
+
+-- SELECT básico
+
+SELECT *
+FROM conta;
+
+SELECT nome, tipo
+FROM conta;
+
+-- WHERE
+
+SELECT *
+FROM transacao
+WHERE tipo = 'DESPESA';
+
+-- ORDER BY
+
+SELECT *
+FROM transacao
+ORDER BY valor DESC;

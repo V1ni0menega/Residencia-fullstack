@@ -1,0 +1,34 @@
+-- 5. JOINs
+
+-- Transação + nome da conta
+
+SELECT
+    t.descricao,
+    t.valor,
+    c.nome AS conta
+FROM transacao t
+JOIN conta c
+    ON c.id = t.conta_id;
+
+-- Transação + nome da categoria
+
+SELECT
+    t.descricao,
+    t.valor,
+    c.nome AS categoria
+FROM transacao t
+JOIN categoria c
+    ON c.id = t.categoria_id;
+
+-- JOIN de três tabelas
+
+SELECT
+    t.descricao,
+    t.valor,
+    c.nome AS conta,
+    cat.nome AS categoria
+FROM transacao t
+JOIN conta c
+    ON c.id = t.conta_id
+JOIN categoria cat
+    ON cat.id = t.categoria_id;

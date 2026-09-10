@@ -1,0 +1,46 @@
+-- 4. AGREGAÇÕES
+
+-- SUM — total de receitas
+
+SELECT SUM(valor) AS total_receitas
+FROM transacao
+WHERE tipo = 'RECEITA';
+
+-- SUM — total de despesas
+
+SELECT SUM(valor) AS total_despesas
+FROM transacao
+WHERE tipo = 'DESPESA';
+
+-- COUNT — quantidade de transações
+
+SELECT COUNT(*) AS quantidade
+FROM transacao;
+
+-- MAX — maior despesa
+
+SELECT MAX(valor) AS maior_despesa
+FROM transacao
+WHERE tipo = 'DESPESA';
+
+-- AVG — média das despesas
+
+SELECT AVG(valor) AS media_despesas
+FROM transacao
+WHERE tipo = 'DESPESA';
+
+-- GROUP BY — total por tipo
+
+SELECT
+    tipo,
+    SUM(valor) AS total
+FROM transacao
+GROUP BY tipo;
+
+-- GROUP BY + COUNT — quantidade por tipo
+
+SELECT
+    tipo,
+    COUNT(*) AS quantidade
+FROM transacao
+GROUP BY tipo;
