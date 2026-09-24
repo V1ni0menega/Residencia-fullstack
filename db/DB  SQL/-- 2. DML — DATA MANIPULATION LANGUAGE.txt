@@ -1,0 +1,45 @@
+
+-- 2. DML — DATA MANIPULATION LANGUAGE
+
+-- INSERT
+
+INSERT INTO conta (nome, tipo, saldo_inicial)
+VALUES
+    ('Nubank', 'CORRENTE', 500.00),
+    ('Inter', 'CORRENTE', 1000.00),
+    ('Carteira', 'DINHEIRO', 150.00);
+
+INSERT INTO categoria (nome, tipo)
+VALUES
+    ('Salário', 'RECEITA'),
+    ('Bolsa', 'RECEITA'),
+    ('Alimentação', 'DESPESA'),
+    ('Transporte', 'DESPESA'),
+    ('Estudos', 'DESPESA'),
+    ('Lazer', 'DESPESA');
+
+INSERT INTO transacao (
+    descricao,
+    valor,
+    tipo,
+    data_transacao,
+    conta_id,
+    categoria_id
+)
+VALUES
+    ('Bolsa da residência', 400.00, 'RECEITA', '2026-08-05', 1, 2),
+    ('Mercado', 120.50, 'DESPESA', '2026-08-06', 1, 3),
+    ('Ônibus', 20.00, 'DESPESA', '2026-08-07', 3, 4),
+    ('Curso', 80.00, 'DESPESA', '2026-08-08', 1, 5);
+
+INSERT INTO orcamento (
+    valor_limite,
+    mes,
+    ano,
+    categoria_id
+)
+VALUES
+    (600.00, 8, 2026, 3),
+    (300.00, 8, 2026, 4),
+    (200.00, 8, 2026, 5),
+    (150.00, 8, 2026, 6);
