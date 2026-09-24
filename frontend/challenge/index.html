@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Vinicius Menegussi — Desenvolvedor Fullstack em formação pela ResTIC55">
+    <title>Vinicius Menegussi | Fullstack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <nav>
+            <a href="#hero" class="logo">&gt;_ VM</a>
+            <a href="#contato" class="btn-contato" id="btn-nav-contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- ═══ SIDEBAR DE SEÇÕES (dvlpr.pro style) ═══ -->
+    <aside class="sidebar-nav" aria-label="Navegação por seções">
+        <div class="sidebar-track"></div>
+        <a href="#hero" class="sidebar-item active" data-section="hero"><span>00</span></a>
+        <a href="#sobre" class="sidebar-item" data-section="sobre"><span>01</span></a>
+        <a href="#skills" class="sidebar-item" data-section="skills"><span>02</span></a>
+        <a href="#projetos" class="sidebar-item" data-section="projetos"><span>03</span></a>
+        <a href="#contato" class="sidebar-item" data-section="contato"><span>04</span></a>
+    </aside>
+
+    <!-- Indicador de Scroll no canto inferior direito -->
+    <a href="#sobre" id="scroll-indicator" class="scroll-indicator" aria-label="Rolar para próxima seção">
+        <span class="scroll-indicator-text">SCROLL DOWN</span>
+        <span class="scroll-indicator-icon">&darr;</span>
+    </a>
+
+    <main>
+        <!-- ═══ HERO ═══ -->
+        <section id="hero">
+            <div class="hero-texto">
+                <div class="status-badge">
+                    <span class="status-ponto"></span>
+                    Disponível para novos projetos &middot; ResTIC55
+                </div>
+                <h1>Desenvolvedor<br><span class="accent-word">Fullstack</span><br>em formação.</h1>
+                <p class="subtitulo">Construindo interfaces modernas e back-ends robustos — módulo a módulo, sprint a sprint.</p>
+                <div class="hero-botoes">
+                    <a href="#projetos" id="btn-ver-projetos">Ver Projetos</a>
+                    <a href="./assets/curriculo.pdf" download id="btn-download-cv">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-code-wrapper">
+                <div class="code-card">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="code-tab active">⚡ developer.ts</div>
+                    </div>
+                    <div class="code-body">
+                        <pre><code><span class="cmt">// 🌐 Vinicius Menegussi — Residente Fullstack</span>
+<span class="kw">const</span> <span class="cls">developer</span> = {
+    <span class="var">nome</span>: <span class="str">"Vinicius Menegussi"</span>,
+    <span class="var">fase</span>: <span class="str">"Residente Fullstack @ ResTIC55"</span>,
+    <span class="var">stackAtual</span>: [
+        <span class="str">"HTML5 Semântico"</span>, <span class="str">"CSS Moderno"</span>,
+        <span class="str">"JavaScript"</span>, <span class="str">"PostgreSQL"</span>, <span class="str">"Git"</span>
+    ],
+    <span class="var">aprendendo</span>: <span class="str">"Arquitetura Web &amp; Clean Code"</span>,
+    <span class="var">disponivel</span>: <span class="kw">true</span>
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SOBRE ═══ -->
+        <section id="sobre">
+            <div class="section-label">01 <span class="section-slash">// sobre</span></div>
+            <h2>Quem sou eu.</h2>
+            <p>
+                Desenvolvedor <strong>Fullstack</strong> em formação pela <strong>Residência TIC Softex (ResTIC55)</strong>.
+                Tenho experiência prática em <strong>HTML, CSS e JavaScript</strong> no front-end, e banco de dados <strong>PostgreSQL</strong> no back-end.
+                Apaixonado por resolver problemas reais com tecnologia — como o Portal PMA,
+                que digitalizou o acesso a serviços municipais para os cidadãos de Esteio/RS.
+            </p>
+        </section>
+
+        <!-- ═══ SKILLS ═══ -->
+        <section id="skills">
+            <div class="section-label">02 <span class="section-slash">// habilidades</span></div>
+            <h2>O que eu sei fazer.</h2>
+            <div class="skills-icons-grid">
+
+                <div class="skill-icon-item">
+                    <i class="devicon-html5-plain colored"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-css3-plain colored"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-javascript-plain colored"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-typescript-plain colored"></i>
+                    <span>TypeScript</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-angularjs-plain colored"></i>
+                    <span>Angular</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-java-plain colored"></i>
+                    <span>Java</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-spring-plain colored"></i>
+                    <span>Spring Boot</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-postgresql-plain colored"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-mysql-plain colored"></i>
+                    <span>MySQL</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-git-plain colored"></i>
+                    <span>Git</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-docker-plain colored"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="skill-icon-item">
+                    <i class="devicon-linux-plain"></i>
+                    <span>Linux</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══ PROJETOS (Showcase Slider dvlpr.pro) ═══ -->
+        <section id="projetos">
+            <div class="projetos-header">
+                <div>
+                    <div class="section-label">03 <span class="section-slash">// projetos</span></div>
+                    <h2>O que eu construí.</h2>
+                </div>
+                <div class="projetos-nav-top">
+                    <span class="slide-counter"><strong id="slide-current">01</strong> / 02</span>
+                    <div class="slider-arrows">
+                        <button class="slider-btn prev-btn" id="proj-prev" aria-label="Projeto anterior">&larr;</button>
+                        <button class="slider-btn next-btn" id="proj-next" aria-label="Próximo projeto">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-viewport" id="slider-viewport">
+                <div class="slider-track" id="slider-track">
+
+                    <!-- Slide 1: Portal PMA -->
+                    <article class="slide-projeto active" data-index="0" id="card-portal-pma">
+                        <div class="slide-conteudo">
+                            <div class="card-numero">P.01 // CIVIC TECH &amp; FULLSTACK</div>
+                            <h3 class="slide-titulo">Portal PMA — Prefeitura de Esteio</h3>
+                            <p class="slide-descricao">
+                                Portal público que digitalizou o acesso a serviços municipais para os munícipes de Esteio/RS.
+                                Desenvolvido com arquitetura moderna e escalável, resolvendo uma dor real da administração pública e agilizando processos com eficiência.
+                            </p>
+                            <div class="slide-stack">
+                                <span class="stack-label">Construído com:</span>
+                                <ul>
+                                    <li>Angular 21</li>
+                                    <li>Spring Boot</li>
+                                    <li>Docker</li>
+                                    <li>PostgreSQL</li>
+                                    <li>REST APIs</li>
+                                </ul>
+                            </div>
+                            <div class="slide-acoes">
+                                <a href="https://github.com/V1ni0menega" target="_blank" rel="noopener noreferrer" class="btn-projeto-primary" id="link-github-pma">
+                                    Ver no GitHub &rarr;
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-preview">
+                            <div class="preview-mockup">
+                                <div class="mockup-bar">
+                                    <span class="m-dot dot-red"></span>
+                                    <span class="m-dot dot-yellow"></span>
+                                    <span class="m-dot dot-green"></span>
+                                    <span class="mockup-url">pma.esteio.rs.gov.br</span>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="mockup-badge">● Sistema em Produção</div>
+                                    <h4>Portal de Serviços ao Cidadão</h4>
+                                    <div class="mockup-grid">
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">100%</span>
+                                            <span class="stat-txt">Digital</span>
+                                        </div>
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">Spring Boot</span>
+                                            <span class="stat-txt">API REST</span>
+                                        </div>
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">Angular</span>
+                                            <span class="stat-txt">SPA Dinâmica</span>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-code-line">&gt; Conexão PostgreSQL: Estabelecida</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2: ViewVerde -->
+                    <article class="slide-projeto" data-index="1" id="card-viewverde">
+                        <div class="slide-conteudo">
+                            <div class="card-numero">P.02 // ESG &amp; MONITORAMENTO AMBIENTAL</div>
+                            <h3 class="slide-titulo">ViewVerde</h3>
+                            <p class="slide-descricao">
+                                Plataforma institucional de dados ambientais com 4 módulos de monitoramento sustentável.
+                                Desenvolvida com Eleventy (11ty), garantindo alta velocidade de carregamento, acessibilidade padrão WCAG AA e parceria estratégica entre Esteio, Unisinos e Dell.
+                            </p>
+                            <div class="slide-stack">
+                                <span class="stack-label">Construído com:</span>
+                                <ul>
+                                    <li>Eleventy (11ty)</li>
+                                    <li>HTML Semântico</li>
+                                    <li>CSS Moderno</li>
+                                    <li>JavaScript</li>
+                                    <li>WCAG AA</li>
+                                </ul>
+                            </div>
+                            <div class="slide-acoes">
+                                <a href="https://github.com/V1ni0menega" target="_blank" rel="noopener noreferrer" class="btn-projeto-primary" id="link-github-viewverde">
+                                    Ver no GitHub &rarr;
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-preview">
+                            <div class="preview-mockup">
+                                <div class="mockup-bar">
+                                    <span class="m-dot dot-red"></span>
+                                    <span class="m-dot dot-yellow"></span>
+                                    <span class="m-dot dot-green"></span>
+                                    <span class="mockup-url">viewverde.org.br</span>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="mockup-badge green">● Monitoramento Ativo</div>
+                                    <h4>Dados Ambientais &amp; Sustentabilidade</h4>
+                                    <div class="mockup-grid">
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">4</span>
+                                            <span class="stat-txt">Módulos ESG</span>
+                                        </div>
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">WCAG AA</span>
+                                            <span class="stat-txt">Acessibilidade</span>
+                                        </div>
+                                        <div class="mockup-stat">
+                                            <span class="stat-num">SSG</span>
+                                            <span class="stat-txt">Eleventy Engine</span>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-code-line">&gt; Unisinos &bull; Dell &bull; Esteio</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- Dots de navegação inferior -->
+            <div class="slider-dots">
+                <button class="dot-indicator active" data-index="0" aria-label="Ir para projeto 1"></button>
+                <button class="dot-indicator" data-index="1" aria-label="Ir para projeto 2"></button>
+            </div>
+        </section>
+
+        <!-- ═══ CONTATO ═══ -->
+        <section id="contato">
+            <div class="section-label">04 <span class="section-slash">// contato</span></div>
+            <h2>Vamos conversar.</h2>
+            <p class="contato-subtitulo">Aberto a oportunidades, colaborações e boas conversas sobre tecnologia.</p>
+            <address>
+                <a href="https://github.com/V1ni0menega" target="_blank" rel="noopener noreferrer" id="link-github-contato">GitHub</a>
+                <a href="https://linkedin.com/in/vinicius-menegussi" target="_blank" rel="noopener noreferrer" id="link-linkedin">LinkedIn</a>
+                <a href="mailto:vinicius@email.com" id="link-email">vinicius@email.com</a>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Vinicius Menegussi &mdash; Feito com HTML, CSS &amp; JS.</p>
+    </footer>
+
+    <script>
+        // ─── 1. Sidebar Scroll Spy & Scroll Indicator ───
+        const sectionIds = ['hero', 'sobre', 'skills', 'projetos', 'contato'];
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        const scrollText = scrollIndicator.querySelector('.scroll-indicator-text');
+        const scrollIcon = scrollIndicator.querySelector('.scroll-indicator-icon');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.id;
+                    const currentIndex = sectionIds.indexOf(currentId);
+
+                    sidebarItems.forEach(item => {
+                        if (item.getAttribute('data-section') === currentId) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+
+                    // Atualiza o Scroll Indicator inferior direito
+                    if (currentId === 'contato') {
+                        scrollText.textContent = 'BACK TO TOP';
+                        scrollIcon.innerHTML = '&uarr;';
+                        scrollIndicator.setAttribute('href', '#hero');
+                    } else {
+                        const nextId = sectionIds[currentIndex + 1] || 'hero';
+                        scrollText.textContent = 'SCROLL DOWN';
+                        scrollIcon.innerHTML = '&darr;';
+                        scrollIndicator.setAttribute('href', `#${nextId}`);
+                    }
+                }
+            });
+        }, { threshold: 0.35 });
+
+        sections.forEach(sec => sectionObserver.observe(sec));
+
+        // ─── 2. Slider Horizontal de Projetos (dvlpr.pro style) ───
+        const track = document.getElementById('slider-track');
+        const slides = document.querySelectorAll('.slide-projeto');
+        const dots = document.querySelectorAll('.dot-indicator');
+        const prevBtn = document.getElementById('proj-prev');
+        const nextBtn = document.getElementById('proj-next');
+        const counterEl = document.getElementById('slide-current');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateSlider(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            slides.forEach((slide, idx) => {
+                if (idx === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            if (counterEl) {
+                counterEl.textContent = String(currentSlide + 1).padStart(2, '0');
+            }
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => updateSlider(currentSlide - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => updateSlider(currentSlide + 1));
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const targetIdx = parseInt(e.currentTarget.getAttribute('data-index'), 10);
+                updateSlider(targetIdx);
+            });
+        });
+
+        // Suporte a swipe touch / drag
+        let startX = 0, dist = 0;
+        const viewport = document.getElementById('slider-viewport');
+
+        viewport.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            dist = 0;
+        }, { passive: true });
+
+        viewport.addEventListener('touchmove', (e) => {
+            dist = e.touches[0].clientX - startX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', () => {
+            if (Math.abs(dist) > 50) {
+                if (dist < 0) updateSlider(currentSlide + 1);
+                else updateSlider(currentSlide - 1);
+            }
+        });
+
+        // ─── 3. Navegação por teclado — estilo dvlpr.pro ───
+        // ↑ / ↓  →  navega entre SEÇÕES
+        // ← / →  →  troca SLIDES de projeto (quando #projetos estiver visível)
+
+        let projetosVisivel = false;
+        const projetosSection = document.getElementById('projetos');
+        let secaoAtualIndex = 0;   // controla qual seção está ativa
+        let navCooldown = false;   // evita scroll duplo
+
+        // Observa qual seção está visível para atualizar secaoAtualIndex
+        const visibilidadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    secaoAtualIndex = sectionIds.indexOf(entry.target.id);
+                    projetosVisivel = (entry.target.id === 'projetos');
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(sec => visibilidadeObserver.observe(sec));
+
+        function navegarSecao(direcao) {
+            if (navCooldown) return;
+            const destIndex = secaoAtualIndex + direcao;
+            if (destIndex < 0 || destIndex >= sectionIds.length) return;
+            navCooldown = true;
+            const destEl = document.getElementById(sectionIds[destIndex]);
+            if (destEl) destEl.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => { navCooldown = false; }, 900);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            // Ignora se o usuário estiver digitando em algum input/textarea
+            if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+            switch (e.key) {
+                case 'ArrowDown':
+                case 'PageDown':
+                    e.preventDefault();
+                    navegarSecao(+1);
+                    break;
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    navegarSecao(-1);
+                    break;
+                case 'ArrowRight':
+                    if (projetosVisivel) { e.preventDefault(); updateSlider(currentSlide + 1); }
+                    break;
+                case 'ArrowLeft':
+                    if (projetosVisivel) { e.preventDefault(); updateSlider(currentSlide - 1); }
+                    break;
+            }
+        });
+
+        // ─── 4. Scroll do mouse sobre o viewport de projetos muda slide ───
+        let scrollCooldown = false;
+        viewport.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            if (scrollCooldown) return;
+            scrollCooldown = true;
+            if (e.deltaY > 0 || e.deltaX > 0) updateSlider(currentSlide + 1);
+            else updateSlider(currentSlide - 1);
+            setTimeout(() => { scrollCooldown = false; }, 800);
+        }, { passive: false });
+
+        // ─── 5. Drag com mouse (desktop) no viewport ───
+        let mouseDown = false, mouseStartX = 0, mouseDist = 0;
+
+        viewport.addEventListener('mousedown', (e) => {
+            mouseDown = true;
+            mouseStartX = e.clientX;
+            mouseDist = 0;
+            viewport.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (!mouseDown) return;
+            mouseDown = false;
+            viewport.style.cursor = '';
+            if (Math.abs(mouseDist) > 60) {
+                if (mouseDist < 0) updateSlider(currentSlide + 1);
+                else updateSlider(currentSlide - 1);
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!mouseDown) return;
+            mouseDist = e.clientX - mouseStartX;
+        });
+    </script>
+
+</body>
+</html>
