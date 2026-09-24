@@ -55,5 +55,11 @@ pnpm-debug.log*
 tmp/
 scratch/
 transcript*.jsonl
-
 docs/
+
+# ===============================
+# Antigravity / AI Agent customizations
+# ===============================
+.agents/
+.agent/
+.gemini/
