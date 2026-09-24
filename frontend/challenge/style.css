@@ -41,6 +41,7 @@
 ═══════════════════════════════════ */
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -211,12 +212,19 @@ header nav .logo:hover {
 }
 
 /* ═══════════════════════════════════
-   SEÇÕES — configuração base
+   SEÇÕES — configuração base (dvlpr.pro style)
 ═══════════════════════════════════ */
 section {
-    padding: var(--espacamento-lg) var(--espacamento-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(70px + var(--espacamento-md)) var(--espacamento-md) var(--espacamento-md);
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* Label numerado de seção: "01 // sobre" */
@@ -226,7 +234,7 @@ section {
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--cor-texto-secundario);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .section-slash {
@@ -256,6 +264,8 @@ section h2 {
     padding-top: calc(var(--espacamento-lg) + 70px);
     position: relative;
     background: radial-gradient(ellipse at 30% 50%, rgba(139, 92, 246, 0.07) 0%, transparent 60%);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* Lado esquerdo do hero */
@@ -452,29 +462,129 @@ section h2 {
 .code-body .cmt { color: #4B4B60; font-style: italic; }
 
 /* ═══════════════════════════════════
-   SOBRE
+   SOBRE (dvlpr.pro style)
 ═══════════════════════════════════ */
 #sobre {
     border-top: 1px solid var(--cor-borda);
 }
 
-#sobre p {
-    font-size: 1.05rem;
-    color: var(--cor-texto-secundario);
-    max-width: 660px;
-    line-height: 1.85;
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
 }
 
-#sobre p strong {
+.sobre-lead {
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: var(--cor-texto);
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+}
+
+.sobre-texto p {
+    font-size: 0.95rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.sobre-texto p strong {
     color: var(--cor-texto);
     font-weight: 600;
+}
+
+.sobre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0 1.5rem;
+}
+
+.tag-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cor-accent);
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    padding: 0.32rem 0.8rem;
+    border-radius: 999px;
+    letter-spacing: 0.4px;
+}
+
+.sobre-cta {
+    margin-top: 0.5rem;
+}
+
+.link-destaque {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cor-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+}
+
+.link-destaque:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.sobre-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sobre-card {
+    background: var(--cor-bg-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.4rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sobre-card:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+    transform: translateX(6px);
+    box-shadow: 0 12px 28px rgba(139, 92, 246, 0.12);
+}
+
+.sc-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--cor-accent);
+    letter-spacing: 2px;
+    font-family: "Fira Code", monospace;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.sobre-card h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin-bottom: 0.35rem;
+}
+
+.sobre-card p {
+    font-size: 0.83rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* ═══════════════════════════════════
    SKILLS — Grid de ícones (dvlpr.pro style)
 ═══════════════════════════════════ */
 #skills {
-    border-top: 1px solid var(--cor-borda);
+    border-top: none;
 }
 
 /* Grid de ícones: 6 por linha em desktop, responsivo */
@@ -491,12 +601,7 @@ section h2 {
     align-items: center;
     gap: 0.75rem;
     padding: 1.5rem 1rem;
-    background: var(--cor-bg-card);
-    border: 1px solid var(--cor-borda);
-    border-radius: var(--radius-lg);
-    cursor: default;
-    transition: border-color 0.25s ease, transform 0.25s ease,
-                box-shadow 0.25s ease, background 0.25s ease;
+    cursor: grab;
     position: relative;
     overflow: hidden;
 }
@@ -875,28 +980,37 @@ section h2 {
 }
 
 /* ═══════════════════════════════════
-   CONTATO
+   CONTATO (dvlpr.pro style)
 ═══════════════════════════════════ */
 #contato {
     border-top: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contato-conteudo {
+    margin: auto 0;
 }
 
 .contato-subtitulo {
     color: var(--cor-texto-secundario);
-    font-size: 1rem;
-    margin-top: -1rem;
+    font-size: 1.05rem;
+    margin-top: -0.5rem;
     margin-bottom: var(--espacamento-md);
+    max-width: 580px;
+    line-height: 1.7;
 }
 
 #contato address {
     font-style: normal;
     display: flex;
-    gap: 0.75rem;
+    gap: 0.85rem;
     flex-wrap: wrap;
 }
 
 #contato address a {
-    color: var(--cor-texto-secundario);
+    color: var(--cor-texto);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -904,26 +1018,27 @@ section h2 {
     border: 1px solid var(--cor-borda);
     border-radius: 999px;
     transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cor-bg-card);
 }
 
 #contato address a:hover {
     color: var(--cor-accent);
     border-color: var(--cor-accent);
-    background: rgba(139, 92, 246, 0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--cor-accent-glow);
 }
 
-/* ═══════════════════════════════════
-   FOOTER
-═══════════════════════════════════ */
-footer {
+.contato-footer {
+    padding-top: 2rem;
     border-top: 1px solid var(--cor-borda);
-    padding: var(--espacamento-md);
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
 }
 
-footer p {
+.contato-footer p {
     color: var(--cor-texto-secundario);
     font-size: 0.82rem;
     letter-spacing: 0.3px;
@@ -941,6 +1056,25 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    section {
+        min-height: auto;
+        padding: 5rem 1.5rem 3rem;
+        scroll-snap-align: none;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .sobre-card:hover {
+        transform: none;
+    }
+
     .sidebar-nav,
     .scroll-indicator {
         display: none;
