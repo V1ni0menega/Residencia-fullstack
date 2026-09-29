@@ -83,6 +83,10 @@
     align-items: center;
     justify-content: center;
     color: #a78bfa;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    user-select: none;
     flex-shrink: 0;
 }
 
