@@ -108,6 +108,7 @@ scrollIndicator.addEventListener('click', (e) => {
 // Atalhos de teclado (↑ / ↓ / PageUp / PageDown / ← / →)
 document.addEventListener('keydown', (e) => {
     if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if (window.Modal && window.Modal.isOpen()) return;
 
     switch (e.key) {
         case 'ArrowDown':
@@ -138,12 +139,31 @@ document.addEventListener('keydown', (e) => {
 // ─── 2. Slider Horizontal de Projetos (dvlpr.pro style) ───
 const track = document.getElementById('slider-track');
 const slides = document.querySelectorAll('.slide-projeto');
-const dots = document.querySelectorAll('.dot-indicator');
 const prevBtn = document.getElementById('proj-prev');
 const nextBtn = document.getElementById('proj-next');
 const counterEl = document.getElementById('slide-current');
+const totalEl = document.getElementById('slide-total');
+const dotsContainer = document.querySelector('.slider-dots');
 let currentSlide = 0;
 const totalSlides = slides.length;
+
+// Sincroniza contador total dinamicamente
+if (totalEl) {
+    totalEl.textContent = String(totalSlides).padStart(2, '0');
+}
+
+// Gera dots dinamicamente baseado na quantidade de slides
+if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `dot-indicator${i === 0 ? ' active' : ''}`;
+        dot.setAttribute('data-index', i);
+        dot.setAttribute('aria-label', `Ir para projeto ${i + 1}`);
+        dot.addEventListener('click', () => updateSlider(i));
+        dotsContainer.appendChild(dot);
+    }
+}
 
 function updateSlider(index) {
     currentSlide = (index + totalSlides) % totalSlides;
@@ -153,7 +173,8 @@ function updateSlider(index) {
         slide.classList.toggle('active', idx === currentSlide);
     });
 
-    dots.forEach((dot, idx) => {
+    const allDots = dotsContainer ? dotsContainer.querySelectorAll('.dot-indicator') : [];
+    allDots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === currentSlide);
     });
 
@@ -164,13 +185,6 @@ function updateSlider(index) {
 
 if (prevBtn) prevBtn.addEventListener('click', () => updateSlider(currentSlide - 1));
 if (nextBtn) nextBtn.addEventListener('click', () => updateSlider(currentSlide + 1));
-
-dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-        const targetIdx = parseInt(e.currentTarget.getAttribute('data-index'), 10);
-        updateSlider(targetIdx);
-    });
-});
 
 // Suporte a swipe touch / drag
 let startX = 0, dist = 0;
@@ -243,3 +257,4 @@ document.addEventListener('mousemove', (e) => {
 
 // Inicialização
 sincronizarEstadoNavegacao();
+
