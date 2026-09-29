@@ -63,3 +63,10 @@ docs/
 .agents/
 .agent/
 .gemini/
+
+# ===============================
+# Frontend (Apostilas & Insights)
+# ===============================
+frontend/apostila/
+frontend/insights/
+
